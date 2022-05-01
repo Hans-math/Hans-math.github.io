@@ -1,1 +1,55 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Progate</title>
+        <script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+    </head>
+    <body>
+        <h1>Lebesgue非可測集合の構成</h1>
+        <center><strong>Hans</strong></center>
+        <p>この記事では, $\mathbb{R}$上のLebesgue非可測集合の構成をしていこうと思う. まず, 以下の命題を示す:
+            <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+                補題1: $\alpha$を無理数とする. この時, $A:=\{n+m\alpha: n,m\in \mathbb{Z}\}$は, $\mathbb{R}$上稠密である.
+            </div>
+            <strong>証明</strong>) $A\cap [0,1)$は無限集合である. というのも, 仮に有限集合であったとすると, 鳩の巣原理から, ある$n,m\in \mathbb{Z},\ n\neq m$で, $n\alpha$の小数部分と$m\alpha$の小数部分が一致する, つまり, $(n-m)\alpha\in \mathbb{Z}$となってしまうので, $\alpha$が無理数であることに反するのである. つまり, $A\cap [0,1)$に於いて, 任意の$\epsilon>0$について, ある$x,y\in A\cap [0,1),\ x\neq y$が取れて, $|x-y|<\epsilon$となる. ここで, $A$の元は加減について閉じているので, $a_\epsilon:=x-y$及び, その整数倍は$A$の元になっていることに注意せよ. よって, 任意の$x\in \mathbb{R}$と$\epsilon>0$について, ある$a\in A$が存在して, $|x-a|<\epsilon$となる. この$a$は具体的に$a_\epsilon$の整数倍で撮ってくることができる. よって, $A$が$\mathbb{R}$上稠密であることが分かった. <div align="right">$\bullet$</div>
+        </p>
+        <p>次に, 上の結果を用いて$\mathbb{R}$上に同値関係を入れる. $x,y\in \mathbb{R}$について, $x\sim y$で, $x-y\in A$とするのである. これが同値関係になっていることは, すぐにわかるので, 細部は読者に任せることにする. この同値関係について, 同値類は無数に存在する. このことは, $\mathbb{R}$と$A$の濃度の比較によって, あるいはもっと具体的に, 互いに異なる正整数$n,m$について, $\frac{1}{n},\ \frac{1}{m}$は同値でないことによってわかる. このときに, <strong>選択公理を用いて</strong>, 今定めた同値に関する同値類から, $[0,1)$区間内にある代表元をそれぞれ選んでくる. その代表元全体からなる集合を$A_0$とおく. 
+            <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+                定理2: $A_0$はLebesgueの意味で非可測である.
+            </div>
+            <strong>証明</strong>) 整数$m$について, $A_m$を以下のように定める:
+            \[
+             A_m=\left((A_0-[m\alpha]+m\alpha)\cap [0,1)\right)\cup\left((A_0-[m\alpha]-1+m\alpha)\cap [0,1)\right)
+            \]
+            この時, $n\neq m$ならば, $A_n\cap A_m=\emptyset$である. なぜならば, $A_n\cap A_m\neq \emptyset$とすると, ある$a_n,a_m\in A_0$で, $(a_n-[n\alpha]+n\alpha)-(a_m-[m\alpha]+m\alpha)\in \mathbb{Z}$となるので, 特に$a_n\sim a_m$となる. $a_n,a_m$はどちらも同値類の代表元だったので, $a_n=a_m$でなければならないが, ここから$(n-m)\alpha\in \mathbb{Z}$となって, $\alpha$の無理数性に反するからである. さらに, 
+            \[
+            [0,1)=\bigcup_{n\in \mathbb{Z}}A_n
+            \]
+            となる. これは, 以下のようにして示せる: $x\in [0,1)$を任意に取ってきた時, ある$a\in A_0$で, $x\sim a$となるので,
+            \[
+            x=a+n+m\alpha
+            \]
+            なる$n,m\in \mathbb{Z}$が存在するが, $0\leq x, a<1$,より, $|x-a|<1$となるので, 結局$n=-[m\alpha]$あるいは$-1-[m\alpha]$となる. よって, $x\in A_m$が分かった. \\
+             $A_0$がLebesgue可測であったとすると, $(A_0-[m\alpha]+m\alpha)\cap [0,1),\ (A_0-[m\alpha]-1+m\alpha)\cap [0,1)$は共にLebesgue可測であり, $\mu A_m=\mu \left((A_0-[m\alpha]+m\alpha)\cap [0,1)\right)+\mu \left((A_0-[m\alpha]-1+m\alpha)\cap [0,1)\right)=\mu A_0$となるので, 
+             \[
+             1=\mu[0,1)=\sum_{m\in \mathbb{Z}}\mu A_m=\sum_{m\in \mathbb{Z}}\mu A_0
+             \]
+             となるが, これは明らかに矛盾である.<div align="right">$\bullet$</div>
+        </p>
+    </body>
+</html>
